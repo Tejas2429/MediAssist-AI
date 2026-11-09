@@ -1,0 +1,73 @@
+# Environment & Secrets (NEVER COMMIT)
+.env
+*.env
+backend/.env
+.env.*
+!.env.example
+!backend/.env.example
+
+# Databases & Local persistence
+*.db
+*.sqlite
+*.sqlite3
+mediassist.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+backend/venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Android / Gradle
+android/.gradle/
+.gradle/
+android/build/
+android/app/build/
+build/
+*.apk
+*.aab
+local.properties
+android/local.properties
+.idea/
+*.iml
+.cxx/
+captures/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/

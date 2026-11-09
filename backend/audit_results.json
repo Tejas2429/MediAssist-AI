@@ -1,0 +1,135 @@
+{
+  "auth": {
+    "password_hashing": "bcrypt",
+    "hash_verification_success": true,
+    "hash_rejection_success": true,
+    "jwt_creation_and_decoding": true,
+    "jwt_expiration_handling": true,
+    "hardcoded_secret_key_risk": true
+  },
+  "database": {
+    "session_persisted": true,
+    "patient_name_match": true,
+    "message_persisted": true,
+    "message_text_match": true,
+    "database_dialect": "sqlite"
+  },
+  "api": {
+    "health_status_code": 200,
+    "login_status_code": 200,
+    "has_token": true,
+    "queue_unauthenticated_status": 200,
+    "queue_unauthenticated_open": true,
+    "intake_start_status": 200,
+    "session_id_created": true,
+    "intake_msg_status": 200,
+    "intake_comp_status": 200,
+    "patient_detail_status": 200,
+    "summary_generated": true
+  },
+  "red_flags": {
+    "accuracy": 1.0,
+    "cases_tested": 11,
+    "details": [
+      {
+        "input": "I have severe crushing chest pain radiating to left arm",
+        "expected_flag": "ACUTE_CORONARY_SYNDROME",
+        "detected_flags": [
+          "ACUTE_CORONARY_SYNDROME"
+        ],
+        "correct": true
+      },
+      {
+        "input": "Tengo un dolor muy fuerte en el pecho que se me va al brazo izquierdo",
+        "expected_flag": "ACUTE_CORONARY_SYNDROME",
+        "detected_flags": [
+          "ACUTE_CORONARY_SYNDROME"
+        ],
+        "correct": true
+      },
+      {
+        "input": "I can't breathe, my lips are blue and gasping for air",
+        "expected_flag": "SEVERE_RESPIRATORY_DISTRESS",
+        "detected_flags": [
+          "SEVERE_RESPIRATORY_DISTRESS"
+        ],
+        "correct": true
+      },
+      {
+        "input": "saans nahi aa rahi hai aur dama ka daura hai",
+        "expected_flag": "SEVERE_RESPIRATORY_DISTRESS",
+        "detected_flags": [
+          "SEVERE_RESPIRATORY_DISTRESS"
+        ],
+        "correct": true
+      },
+      {
+        "input": "Sudden slurred speech and weakness on one side of my body",
+        "expected_flag": "ACUTE_STROKE_ALERT",
+        "detected_flags": [
+          "ACUTE_STROKE_ALERT"
+        ],
+        "correct": true
+      },
+      {
+        "input": "Mi cara esta caida y no puedo hablar bien",
+        "expected_flag": "ACUTE_STROKE_ALERT",
+        "detected_flags": [
+          "ACUTE_STROKE_ALERT"
+        ],
+        "correct": true
+      },
+      {
+        "input": "My throat is closing up and tongue is swollen after eating peanuts",
+        "expected_flag": "ANAPHYLAXIS_ALERT",
+        "detected_flags": [
+          "ANAPHYLAXIS_ALERT"
+        ],
+        "correct": true
+      },
+      {
+        "input": "Vomiting bright red blood with unbearable stomach pain",
+        "expected_flag": "ACUTE_ABDOMINAL_EMERGENCY",
+        "detected_flags": [
+          "ACUTE_ABDOMINAL_EMERGENCY"
+        ],
+        "correct": true
+      },
+      {
+        "input": "I have mild knee pain when running for 30 minutes",
+        "expected_flag": null,
+        "detected_flags": [],
+        "correct": true
+      },
+      {
+        "input": "Tengo un dolor leve en el dedo del pie",
+        "expected_flag": null,
+        "detected_flags": [],
+        "correct": true
+      },
+      {
+        "input": "Routine refill for blood pressure medication",
+        "expected_flag": null,
+        "detected_flags": [],
+        "correct": true
+      }
+    ]
+  },
+  "phi": {
+    "original": "Patient John Doe, SSN 123-45-6789, Phone (555) 234-5678, Email john.doe@hospital.com, CC 4532-1234-5678-9012",
+    "sanitized": "Patient John Doe, SSN [REDACTED_SSN], Phone ([REDACTED_PHONE], Email [REDACTED_EMAIL], CC [REDACTED_CC]",
+    "ssn_masked": true,
+    "phone_masked": true,
+    "email_masked": true,
+    "cc_masked": true,
+    "patient_name_masked": false
+  },
+  "gemini": {
+    "gemini_api_key_configured": true,
+    "gemini_model": "gemini-1.5-flash",
+    "gemini_live_mode": true,
+    "gemini_sdk_deprecated_notice": "google.generativeai package has ended support per Google notice",
+    "fallback_operational": true,
+    "fallback_has_translation": true
+  }
+}
